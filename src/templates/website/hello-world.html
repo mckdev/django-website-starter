@@ -1,0 +1,27 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Django Website Starter</title>
+<meta name="description" content="Starting project from Django websites."/>
+{% endblock meta %} 
+
+{% block content %}
+<h1>Django Website Starter</h1>
+<p>Hello, World!</p>
+<hr>
+<h2>User Info</h2>
+<p>	
+	{% if user.is_authenticated %}
+	You are logged in as <strong>{{ user }}</strong>.
+</p>
+<ul>
+	<li><a href="{% url 'admin:logout' %}?next=/">Logout</a></li>
+	<li><a href="{% url 'admin:index' %}">Go to admin</a></li>
+</ul>
+	{% else %}
+		<p>You are not logged in. Log in <a href="{% url 'admin:login' %}?next=/"> here</a>.</p>
+	{% endif %}
+<h2>Static Files Test</h2>
+<img class="img-fluid" src="{% static 'test.jpg' %}" alt="Hello, World!">
+{% endblock content %}
