@@ -104,3 +104,4 @@ ENV/
 *.sublime-*
 static-root
 *.sqlite3
+.idea/
